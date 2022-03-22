@@ -3,7 +3,7 @@ import './Product.css'
 
 const Product = ({product, handleAddToCart}) => {
     // distructurching from props
-    // const {product, handleAddToCart} = props
+  /*   const {product, handleAddToCart} = props */
 
     const { name, img, seller, price, ratings, } = product
     return (
@@ -16,7 +16,7 @@ const Product = ({product, handleAddToCart}) => {
                 <p><small>Ratings: {ratings} stars</small></p>
             </div>
             <button onClick={() => handleAddToCart(product)} className='cart-btn'>
-                <p>Add to cart</p>
+                <p>Add to cart</p> 
             </button>
         </div>
     );
