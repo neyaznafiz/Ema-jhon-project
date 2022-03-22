@@ -4,6 +4,7 @@
     height: 510px;
     border: 1px solid #95a0a7;
     border-radius: 8px;
+    position: relative;
 }
 
 .product img {
@@ -28,6 +29,7 @@
 
 .product-info p{
     margin-bottom: 0;
+    margin-top: 3px
 }
 
 .cart-btn{
@@ -35,4 +37,9 @@
     background-color: #ffe0b3;
     border: none;
     border-radius: 0px 0px 8px 8px;
+    position: absolute;
+    bottom: 0;
+}
+.cart-btn:hover{
+    background-color: orange;
 }
