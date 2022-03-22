@@ -1,9 +1,9 @@
 import React from 'react';
 import './Product.css'
 
-const Product = (props) => {
+const Product = ({product, handleAddToCart}) => {
     // distructurching from props
-    const {product, handleAddToCart} = props
+    // const {product, handleAddToCart} = props
 
     const { name, img, seller, price, ratings, } = product
     return (
