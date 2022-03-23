@@ -10,13 +10,16 @@ const Cart = ({ cart }) => {
         shipping = shipping + product.shipping
     }
 
+    // const tax = total * 10 / 100
+    const tax = (total * 0.1).toFixed(2)
+
     return (
         <div className='cart'>
             <h4>Order Summary</h4>
             <p>Selected Items : {cart.length}</p>
             <p>Total Price : ${total}</p>
             <p>Total Shipping : ${shipping}</p>
-            <p>Tax : </p>
+            <p>Tax : ${tax}</p>
             <h5>Grand Total : </h5>
         </div>
     );
