@@ -6,6 +6,7 @@ import useCart from '../Hooks/useCart';
 import useProducts from '../Hooks/useProducts';
 import ReviewItme from '../ReviewIttem/ReviewItme';
 import '../Shop/Shop.css'
+import './Orders.css'
 
 const Orders = () => {
 
