@@ -16,6 +16,10 @@ const Orders = () => {
             <p>Cart has: {cart.length}</p> */}
             <div className="products-container">
 
+{
+    cart.map()
+}
+
             </div>
 
             <div className="cart-container">
