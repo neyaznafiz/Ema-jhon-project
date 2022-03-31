@@ -11,15 +11,20 @@ const Orders = () => {
 
     const [cart, setCart] = useCart(products)
 
+    const handleRemoveProduct = product => {
+        console.log(product);
+    }
+
     return (
         <div className='shop-container'>
-            
+
             <div className="review-itmes-container">
 
                 {
                     cart.map(product => <ReviewItme
                         key={product.id}
                         product={product}
+                        handleRemoveProduct={handleRemoveProduct}
                     ></ReviewItme>)
                 }
 
