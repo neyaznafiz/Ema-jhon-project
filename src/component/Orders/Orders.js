@@ -1,4 +1,5 @@
 import React from 'react';
+import { removeFromDb } from '../../utilities/fakedb';
 import Cart from '../Cart/Cart';
 import useCart from '../Hooks/useCart';
 import useProducts from '../Hooks/useProducts';
@@ -14,6 +15,9 @@ const Orders = () => {
     const handleRemoveProduct = product => {
        const rest = cart.filter(prdc => prdc.id !== product.id)
        setCart(rest)
+
+// remove selected item from local storage
+       removeFromDb(product.id)
     }
 
     return (
