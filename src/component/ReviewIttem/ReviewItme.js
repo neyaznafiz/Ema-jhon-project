@@ -1,12 +1,30 @@
 import React from 'react';
+import './ReviewItme.css'
 
 const ReviewItme = (props) => {
 
-const {name, price, shipping, quantity}=props.product
+    const { name, img, price, shipping, quantity } = props.product
 
     return (
-        <div>
-            <h3>This your selected Itmes : {name} </h3>
+        <div className='review-item'>
+            <div>
+                <img src={img} alt="" />
+            </div>
+            <div className="review-item-details-container">
+
+                <div className="review-item-details">
+
+                    <p className="product-name">{name}</p>
+                    <p>Price: <span className='orange-color'> ${price}</span></p>
+                    <p><small> Shipping: {shipping}</small></p>
+                    <p><small>Quantity: {quantity}</small></p>
+
+                </div>
+
+                <div className="delete-container">
+
+                </div>
+            </div>
         </div>
     );
 };
