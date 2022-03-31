@@ -3,19 +3,22 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { addToDb, getStroedCart } from '../../utilities/fakedb';
 import Cart from '../Cart/Cart';
+import useProducts from '../Hooks/useProducts';
 import Product from '../Product/Product';
 import './Shop.css'
 
 const Shop = () => {
-    const [products, setProducts] = useState([])
+    // const [products, setProducts] = useState([])
+
+    const [products, setProducts] = useProducts()
 
     const [cart, setCart] = useState([])
 
-    useEffect(() => {
-        fetch('products.json')
-            .then(res => res.json())
-            .then(data => setProducts(data))
-    }, [])
+    // useEffect(() => {
+    //     fetch('products.json')
+    //         .then(res => res.json())
+    //         .then(data => setProducts(data))
+    // }, [])
 
     // show previous data from cart in display
     useEffect(() => {
@@ -32,6 +35,7 @@ const Shop = () => {
         setCart(savedCart)
     }, [products])
 
+    // 
     const handleAddToCart = (selectedProduct) => {
         let newCart = []
         const exists = cart.find(product => product.id === selectedProduct.id)
