@@ -4,4 +4,19 @@
     padding: 8px;
     margin-top: 21px;
     width: 571px;
+    display: flex;
+}
+
+.review-item img{
+    width: 91px;
+    height: 91px;
+    border-radius: 5px;
+}
+
+.review-item-details p{
+    margin: 0;
+}
+
+.review-item-details-container{
+    display: flex;
 }
