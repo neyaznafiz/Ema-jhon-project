@@ -12,7 +12,8 @@ const Orders = () => {
     const [cart, setCart] = useCart(products)
 
     const handleRemoveProduct = product => {
-        console.log(product);
+       const rest = cart.filter(prdc => prdc.id !== product.id)
+       setCart(rest)
     }
 
     return (
