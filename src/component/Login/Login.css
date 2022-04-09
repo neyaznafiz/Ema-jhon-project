@@ -44,3 +44,26 @@ justify-content: center;
     color: #ff9900;
     text-decoration: none;
 }
+
+.hr {
+    width: 200px;
+}
+
+.or-div {
+    margin: 0 10px;
+}
+
+.or{
+    display: flex;
+    align-items: center;
+}
+
+.google-button{
+    width: 415px;
+    height: 55px;
+    margin: 10px 0;
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 5px;
+    font-size: 20px;
+}

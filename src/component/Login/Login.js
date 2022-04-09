@@ -27,6 +27,14 @@ const Login = () => {
                     New to Ema-John? <Link to='/signup' className='form-link'>Create an account</Link>
                 </p>
 
+                <div className='or'>
+                    <div className='hr'> <hr /> </div>
+                    <div className='or-div'> or </div>
+                    <div className='hr'> <hr /> </div>
+                </div>
+
+                <button className='google-button'> Continue with google</button>
+
             </div>
         </div>
     );
