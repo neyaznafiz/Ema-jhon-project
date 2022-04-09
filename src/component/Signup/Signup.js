@@ -23,12 +23,17 @@ const Signup = () => {
         setConfirmPassword(event.target.value)
     }
 
+    const handleCreateUser = event=>{
+        event.preventDefault()
+        
+    }
+
     return (
         <div className='form-container'>
             <div>
                 <h2 className='form-title'>Sign Up</h2>
 
-                <form action="">
+                <form onSubmit={handleCreateUser}>
 
                     <div className="input-group">
                         <label htmlFor="email">Email</label>
