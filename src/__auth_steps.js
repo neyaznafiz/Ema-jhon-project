@@ -3,7 +3,8 @@
  * 1. create a new project firebase.google.com
  * 2. npm install firebase
  * 3. create firebase.init and import getAuth to export
- * 4. 
+ * 4. go to authentication > enable Email and pass auth
+ * 5.
  */
  
 
