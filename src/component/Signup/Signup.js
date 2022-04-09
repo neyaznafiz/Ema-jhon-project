@@ -1,15 +1,26 @@
 import React from 'react';
 import { useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import auth from '../../Firebase/firebase.init'
 import './Signup.css'
 
 const Signup = () => {
 
+    // const [user, setUser] = useState('')
+
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [confiemPassword, setConfirmPassword] = useState('')
+    const [confirmPassword, setConfirmPassword] = useState('')
     const [error, setError] = useState('')
+    const navigate = useNavigate()
+
+    const [
+        createUserWithEmailAndPassword, 
+        user,
+        hookError
+    ] = useCreateUserWithEmailAndPassword(auth)
 
     const handleEmailBlur = event => {
         setEmail(event.target.value)
@@ -23,12 +34,27 @@ const Signup = () => {
         setConfirmPassword(event.target.value)
     }
 
+    if(user){
+        navigate('/shop')
+    }
+
     const handleCreateUser = event => {
         event.preventDefault()
-        if (password !== confiemPassword) {
+        if (password !== confirmPassword) {
             setError('Your two password did not match')
             return
         }
+        if (password.length < 6) {
+            setError('Password must be 6 chracters or longer')
+            return
+        }
+
+        createUserWithEmailAndPassword(email, password)
+            // .then((result) => {
+            //     // const user = result.user
+            //     // setUser(user)
+            //     console.log('user');
+            // })
     }
 
     return (
@@ -54,10 +80,11 @@ const Signup = () => {
                     </div>
 
                     {/* error for pass not match */}
-                    <p style={{color:'red'}}>{error}</p>
+                    <p style={{ color: 'red' }}>{error}</p>
+                    <p style={{ color: 'red' }}>{hookError}</p>
+
 
                     <input className='form-submit' type="submit" value="Sign Up" />
-
                 </form>
                 <p>
                     Already have an accout? <Link to='/login' className='form-link'>Login</Link>
