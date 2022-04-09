@@ -38,6 +38,11 @@ justify-content: center;
     border-radius: 5px;
     border: none;
     font-size: 20px;
+    cursor: pointer;
+}
+
+.form-submit:hover{
+    background-color: rgba(255, 153, 0, 0.6);
 }
 
 .form-link{
@@ -68,4 +73,9 @@ justify-content: center;
     border: 1px solid gray;
     border-radius: 5px;
     font-size: 20px;
+}
+
+.google-button:hover{
+    background-color: rgb(7, 7, 7);
+    color: white;
 }
