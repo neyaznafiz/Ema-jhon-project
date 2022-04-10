@@ -8,37 +8,37 @@ import { auth } from '../../Firebase/firebase.init';
 
 const Login = () => {
 
-const [email, setEmail]= useState('')
-const [password, setPassword]= useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
 
 
-const [
-    signInWithEmailAndPassword,
-    user,
-    loading,
-    error,
-  ] = useSignInWithEmailAndPassword(auth);
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useSignInWithEmailAndPassword(auth);
 
-  const navigate = useNavigate()
+    const navigate = useNavigate()
 
 
-const handleEmailBlur = event => {
-    setEmail(event.target.value)
-}
+    const handleEmailBlur = event => {
+        setEmail(event.target.value)
+    }
 
-const handlePasswordBlur = event => {
-    setPassword(event.target.value)
-}
+    const handlePasswordBlur = event => {
+        setPassword(event.target.value)
+    }
 
-if(user){
-navigate('/shop')
-}
+    if (user) {
+        navigate('/shop')
+    }
 
-const handleUserSignIn = event =>{
-    event.preventDefault()
-    signInWithEmailAndPassword(email, password)
+    const handleUserSignIn = event => {
+        event.preventDefault()
+        signInWithEmailAndPassword(email, password)
 
-}
+    }
 
 
     return (
@@ -58,11 +58,11 @@ const handleUserSignIn = event =>{
                         <input onBlur={handlePasswordBlur} type="password" name="password" id="" required />
                     </div>
 
-                    <p style={{color: 'red'}}>{error?.message}</p>
+                    <p style={{ color: 'red' }}>{error?.message}</p>
 
-{
-    loading && <p>Loading...</p>
-}
+                    {
+                        loading && <p>Loading...</p>
+                    }
 
                     <input className='form-submit' type="submit" value="Login" />
 
@@ -78,7 +78,7 @@ const handleUserSignIn = event =>{
                 </div>
 
                 <div className='google'>
-                <button className='google-button'><FcGoogle className='google-logo'></FcGoogle> Continue with google</button>
+                    <button className='google-button'><FcGoogle className='google-logo'></FcGoogle> Continue with google</button>
                 </div>
 
             </div>
