@@ -18,7 +18,7 @@ const Shipment = () => {
         setName(event.target.value)
     }
 
-    
+
     const handleAddressBlur = event => {
         setAddress(event.target.value)
     }
@@ -30,7 +30,8 @@ const Shipment = () => {
     const handleCreateUser = event => {
         event.preventDefault()
 
-
+        const shipping = { name, email, address, phone }
+        console.log(shipping);
     }
 
     return (
