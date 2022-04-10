@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import './Login.css'
 import { useState } from 'react';
@@ -21,6 +21,9 @@ const Login = () => {
 
     const navigate = useNavigate()
 
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/'
+
 
     const handleEmailBlur = event => {
         setEmail(event.target.value)
@@ -31,7 +34,7 @@ const Login = () => {
     }
 
     if (user) {
-        navigate('/shop')
+        navigate(from, {replace: true})
     }
 
     const handleUserSignIn = event => {
