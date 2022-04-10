@@ -1,7 +1,7 @@
 import React from 'react';
 import './Header.css'
 import logo from '../../images/Logo.svg'
-import { Link } from 'react-router-dom';
+import {button } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../../Firebase/firebase.init';
 
@@ -20,7 +20,7 @@ const Header = () => {
                 <Link to="/about">About</Link>
                 {
                     user ?
-                    <Link to="/signout">Sign out</Link>
+                    <button onClick={handleSignout}>Sign out</button>
                     :
                     <Link to="/login">Login</Link>
                 }
