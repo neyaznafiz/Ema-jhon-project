@@ -29,7 +29,7 @@ function App() {
         <Route path='/shipment' element={
           <RequireAuth>
             <Shipment></Shipment>
-          </RequireAuth>
+           </RequireAuth> 
         }></Route>
 
         <Route path='/about' element={<Abouts></Abouts>}></Route>

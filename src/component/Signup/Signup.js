@@ -50,9 +50,9 @@ const Signup = () => {
         }
 
         createUserWithEmailAndPassword(email, password)
-        .then(result =>{
-            console.log('user');
-        })
+        // .then(result =>{
+        //     console.log('user');
+        // })
             // .then((result) => {
             //     const user = result.user
             //     setUser(user)
@@ -84,7 +84,7 @@ const Signup = () => {
 
                     {/* error for pass not match */}
                     <p style={{ color: 'red' }}>{error}</p>
-                    <p style={{ color: 'red' }}>{hookError}</p>
+                    {/* <p style={{ color: 'red' }}>{hookError}</p> */}
 
 
                     <input className='form-submit' type="submit" value="Sign Up" />
