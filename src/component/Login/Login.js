@@ -1,13 +1,25 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import './Login.css'
 import { useState } from 'react';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { auth } from '../../Firebase/firebase.init';
 
 const Login = () => {
 
 const [email, setEmail]= useState('')
 const [password, setPassword]= useState('')
+
+
+const [
+    signInWithEmailAndPassword,
+    user,
+    loading,
+    error,
+  ] = useSignInWithEmailAndPassword(auth);
+
+  const navigate = useNavigate()
 
 
 const handleEmailBlur = event => {
@@ -18,7 +30,15 @@ const handlePasswordBlur = event => {
     setPassword(event.target.value)
 }
 
+if(user){
+navigate('/shop')
+}
 
+const handleUserSignIn = event =>{
+    event.preventDefault()
+    signInWithEmailAndPassword(email, password)
+
+}
 
 
     return (
@@ -26,7 +46,7 @@ const handlePasswordBlur = event => {
             <div>
                 <h2 className='form-title'>Login</h2>
 
-                <form action="">
+                <form onSubmit={handleUserSignIn}>
 
                     <div className="input-group">
                         <label htmlFor="email">Email</label>
@@ -37,6 +57,12 @@ const handlePasswordBlur = event => {
                         <label htmlFor="password">Password</label>
                         <input onBlur={handlePasswordBlur} type="password" name="password" id="" required />
                     </div>
+
+                    <p style={{color: 'red'}}>{error?.message}</p>
+
+{
+    loading && <p>Loading...</p>
+}
 
                     <input className='form-submit' type="submit" value="Login" />
 
