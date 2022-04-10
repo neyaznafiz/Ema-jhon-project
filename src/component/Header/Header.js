@@ -20,7 +20,7 @@ const Header = () => {
                 <Link to="/about">About</Link>
                 {
                     user ?
-                    <Link to="/logout">Logout</Link>
+                    <Link to="/signout">Sign out</Link>
                     :
                     <Link to="/login">Login</Link>
                 }
