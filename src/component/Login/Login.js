@@ -2,8 +2,25 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import './Login.css'
+import { useState } from 'react';
 
 const Login = () => {
+
+const [email, setEmail]= useState('')
+const [password, setPassword]= useState('')
+
+
+const handleEmailBlur = event => {
+    setEmail(event.target.value)
+}
+
+const handlePasswordBlur = event => {
+    setPassword(event.target.value)
+}
+
+
+
+
     return (
         <div className='form-container'>
             <div>
@@ -13,12 +30,12 @@ const Login = () => {
 
                     <div className="input-group">
                         <label htmlFor="email">Email</label>
-                        <input type="email" name="email" id="" required />
+                        <input onBlur={handleEmailBlur} type="email" name="email" id="" required />
                     </div>
 
                     <div className="input-group">
                         <label htmlFor="password">Password</label>
-                        <input type="password" name="password" id="" required />
+                        <input onBlur={handlePasswordBlur} type="password" name="password" id="" required />
                     </div>
 
                     <input className='form-submit' type="submit" value="Login" />

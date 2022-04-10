@@ -50,10 +50,13 @@ const Signup = () => {
         }
 
         createUserWithEmailAndPassword(email, password)
+        .then(result =>{
+            console.log('user');
+        })
             // .then((result) => {
-            //     // const user = result.user
-            //     // setUser(user)
-            //     console.log('user');
+            //     const user = result.user
+            //     setUser(user)
+            //     console.log(user);
             // })
     }
 
