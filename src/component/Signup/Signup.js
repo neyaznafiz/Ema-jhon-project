@@ -4,9 +4,9 @@ import { FcGoogle } from 'react-icons/fc';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../Firebase/firebase.init'
-import './Signup.css'
+import './SignUp.css'
 
-const Signup = () => {
+const SignUp = () => {
 
     // const [user, setUser] = useState('')
 
@@ -17,10 +17,14 @@ const Signup = () => {
     const navigate = useNavigate()
 
     const [
-        createUserWithEmailAndPassword, 
+        createUserWithEmailAndPassword,
         user,
         hookError
+        // loading,
+        // error
     ] = useCreateUserWithEmailAndPassword(auth)
+
+    console.log(error);
 
     const handleEmailBlur = event => {
         setEmail(event.target.value)
@@ -34,7 +38,7 @@ const Signup = () => {
         setConfirmPassword(event.target.value)
     }
 
-    if(user){
+    if (user) {
         navigate('/shop')
     }
 
@@ -48,16 +52,11 @@ const Signup = () => {
             setError('Password must be 6 chracters or longer')
             return
         }
-
+       
         createUserWithEmailAndPassword(email, password)
-        // .then(result =>{
-        //     console.log('user');
-        // })
-            // .then((result) => {
-            //     const user = result.user
-            //     setUser(user)
-            //     console.log(user);
-            // })
+        
+        console.log(user);
+        
     }
 
     return (
@@ -84,13 +83,13 @@ const Signup = () => {
 
                     {/* error for pass not match */}
                     <p style={{ color: 'red' }}>{error}</p>
-                    {/* <p style={{ color: 'red' }}>{hookError}</p> */}
+                    <p style={{ color: 'red' }}>{hookError}</p>
 
 
                     <input className='form-submit' type="submit" value="Sign Up" />
                 </form>
                 <p>
-                    Already have an accout? <Link to='/login' className='form-link'>Login</Link>
+                    Already have an account? <Link to='/login' className='form-link'>Login</Link>
                 </p>
 
                 <div className='or'>
@@ -108,4 +107,7 @@ const Signup = () => {
     );
 };
 
-export default Signup;
+export default SignUp;
+
+
+

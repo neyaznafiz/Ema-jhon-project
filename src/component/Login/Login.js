@@ -4,7 +4,7 @@ import { FcGoogle } from 'react-icons/fc';
 import './Login.css'
 import { useState } from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { auth } from '../../Firebase/firebase.init';
+import  auth  from '../../Firebase/firebase.init';
 
 const Login = () => {
 

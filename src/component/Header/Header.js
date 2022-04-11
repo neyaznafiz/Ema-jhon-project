@@ -3,7 +3,7 @@ import './Header.css'
 import logo from '../../images/Logo.svg'
 import {Link } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth } from '../../Firebase/firebase.init';
+import  auth  from '../../Firebase/firebase.init';
 import { signOut } from 'firebase/auth';
 
 const Header = () => {

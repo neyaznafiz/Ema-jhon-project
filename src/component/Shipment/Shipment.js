@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth } from '../../Firebase/firebase.init';
+import  auth from '../../Firebase/firebase.init';
 
 
 const Shipment = () => {
