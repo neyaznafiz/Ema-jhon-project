@@ -17,11 +17,11 @@ const Orders = () => {
     const navigate = useNavigate()
 
     const handleRemoveProduct = product => {
-        const rest = cart.filter(prdc => prdc.id !== product.id)
+        const rest = cart.filter(prdc => prdc._id !== product._id)
         setCart(rest)
 
         // remove selected item from local storage
-        removeFromDb(product.id)
+        removeFromDb(product._id)
     }
 
 
@@ -33,7 +33,7 @@ const Orders = () => {
 
                 {
                     cart.map(product => <ReviewItme
-                        key={product.id}
+                        key={product._id}
                         product={product}
                         handleRemoveProduct={handleRemoveProduct}
                     ></ReviewItme>)
@@ -44,9 +44,9 @@ const Orders = () => {
             <div className="cart-container">
 
                 <Cart cart={cart}>
-                   
-                        <button onClick={() =>navigate('/shipment')}>Proceed Shipping</button>
-                    
+
+                    <button onClick={() => navigate('/shipment')}>Proceed Shipping</button>
+
                 </Cart>
 
             </div>

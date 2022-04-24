@@ -15,6 +15,20 @@ const Shop = () => {
 
     const [cart, setCart] = useState([])
 
+    const [pageCount, setPageCount] = useState(0)
+
+    useEffect(() => {
+
+        fetch('http://localhost:5000/productCOunt')
+            .then(res => res.json())
+            .then(data => {
+                const count = data.count
+                const pages = Math.ceil(count/10)
+                setPageCount(pages)
+            })
+
+    }, [])
+
     // useEffect(() => {
     //     fetch('products.json')
     //         .then(res => res.json())
@@ -26,7 +40,7 @@ const Shop = () => {
         const storedCart = getStroedCart()
         const savedCart = []
         for (const id in storedCart) {
-            const addedProducts = products.find(product => product.id === id)
+            const addedProducts = products.find(product => product._id === id)
             if (addedProducts) {
                 const quantity = storedCart[id]
                 addedProducts.quantity = quantity
@@ -39,19 +53,19 @@ const Shop = () => {
     // 
     const handleAddToCart = (selectedProduct) => {
         let newCart = []
-        const exists = cart.find(product => product.id === selectedProduct.id)
+        const exists = cart.find(product => product._id === selectedProduct._id)
         if (!exists) {
             selectedProduct.quantity = 1
             newCart = [...cart, selectedProduct]
         }
         else {
-            const rest = cart.filter(product => product.id !== selectedProduct)
+            const rest = cart.filter(product => product._id !== selectedProduct)
             exists.quantity = exists.quantity + 1
-            newCart=[...rest, exists]
+            newCart = [...rest, exists]
         }
         // const newCart = [...cart, selectedProduct]
         setCart(newCart)
-        addToDb(selectedProduct.id)
+        addToDb(selectedProduct._id)
     }
     return (
         <div className='shop-container'>
