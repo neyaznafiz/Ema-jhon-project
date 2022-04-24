@@ -24,8 +24,6 @@ const Orders = () => {
         removeFromDb(product._id)
     }
 
-
-
     return (
         <div className='shop-container'>
 

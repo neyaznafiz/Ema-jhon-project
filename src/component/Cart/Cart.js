@@ -2,7 +2,7 @@ import React from 'react';
 import './Cart.css'
 
 const Cart = ({ cart, children }) => {
-
+console.log(cart);
     // const { cart, children } = props
 
     let total = 0

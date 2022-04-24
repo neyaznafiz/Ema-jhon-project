@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { addToDb, getStroedCart } from '../../utilities/fakedb';
 import Cart from '../Cart/Cart';
+import useCart from '../Hooks/useCart';
 import useProducts from '../Hooks/useProducts';
 import Product from '../Product/Product';
 import './Shop.css'
@@ -13,7 +14,8 @@ const Shop = () => {
 
     // const [products, setProducts] = useProducts()
 
-    const [cart, setCart] = useState([])
+    // const [cart, setCart] = useState([])
+    const [cart, setCart] = useCart()
 
     const [pageCount, setPageCount] = useState(0)
     const [page, setPage] = useState(0)
@@ -49,19 +51,22 @@ const Shop = () => {
     // }, [])
 
     // show previous data from cart in display
-    useEffect(() => {
-        const storedCart = getStroedCart()
-        const savedCart = []
-        for (const id in storedCart) {
-            const addedProducts = products.find(product => product._id === id)
-            if (addedProducts) {
-                const quantity = storedCart[id]
-                addedProducts.quantity = quantity
-                savedCart.push(addedProducts)
-            }
-        }
-        setCart(savedCart)
-    }, [products])
+    // useEffect(() => {
+    //     const storedCart = getStroedCart()
+    //     const savedCart = []
+    //     for (const id in storedCart) {
+    //         const addedProducts = products.find(product => product._id === id)
+    //         if (addedProducts) {
+    //             const quantity = storedCart[id]
+    //             addedProducts.quantity = quantity
+    //             savedCart.push(addedProducts)
+    //         }
+    //     }
+    //     setCart(savedCart)
+    // }, [products])
+
+
+
 
     // 
     const handleAddToCart = (selectedProduct) => {
