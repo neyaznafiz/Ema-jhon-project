@@ -23,7 +23,7 @@ const Shop = () => {
             .then(res => res.json())
             .then(data => {
                 const count = data.count
-                const pages = Math.ceil(count/10)
+                const pages = Math.ceil(count / 10)
                 setPageCount(pages)
             })
 
@@ -77,6 +77,12 @@ const Shop = () => {
                         handleAddToCart={handleAddToCart}
                     ></Product>)
                 }
+
+                <div className='pagination'>
+                    {
+                        [...Array(pageCount).keys()].map(number => <button>{number + 1}</button>)
+                    }
+                </div>
             </div>
 
             <div className="cart-container">
